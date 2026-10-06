@@ -1,0 +1,81 @@
+/* ===== ATURAN TAMPILAN (layout, animasi, komponen) ===== */
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:Poppins,sans-serif;color:var(--cream);background:linear-gradient(160deg,var(--bg),var(--bg2));min-height:100vh;padding-top:env(safe-area-inset-top,0)}
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:600}
+section{padding:72px 20px;max-width:1000px;margin:auto;text-align:center;position:relative;z-index:1}
+h2{font-size:clamp(1.7rem,5vw,2.4rem);color:var(--gold);margin-bottom:24px}
+button{font:inherit;cursor:pointer;border:0}
+.btn{background:linear-gradient(135deg,var(--gold),#c9e2ff);color:#06173d;padding:12px 26px;border-radius:999px;font-weight:500;transition:.25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(127,182,255,.35)}
+.card{background:var(--glass);border:1px solid rgba(127,182,255,.25);border-radius:20px;backdrop-filter:blur(8px)}
+#fx{position:fixed;inset:0;pointer-events:none;z-index:0}
+/* Gate */
+#gate{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 30%,#1b3f8f,var(--bg));padding:20px;text-align:center}
+#gate h1{font-size:2rem;color:var(--gold);margin-bottom:8px}
+#gate p{opacity:.8;margin-bottom:22px;font-size:.95rem}
+.dots{display:flex;gap:14px;margin-bottom:22px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--gold)}
+.dots i.on{background:var(--gold)}
+.pad{display:grid;grid-template-columns:repeat(3,68px);gap:12px}
+.pad button{height:68px;border-radius:50%;background:var(--glass);border:1px solid rgba(127,182,255,.3);color:var(--cream);font-size:1.4rem}
+.pad button:active{background:var(--gold);color:#06173d}
+#gmsg{height:22px;margin-top:16px;color:var(--pink);font-size:.9rem}
+.shake{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}
+#app{display:none}
+/* Hero */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
+#hero h1{font-size:clamp(2.2rem,8vw,4.5rem);background:linear-gradient(90deg,var(--pink),var(--gold),var(--pink));background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:200%}}
+.badge{display:inline-block;margin:16px 0 28px;padding:8px 20px;border:1px solid var(--gold);border-radius:999px;color:var(--gold);letter-spacing:.15em;font-size:.8rem;text-transform:uppercase;animation:pulse 2.5s infinite}
+@keyframes pulse{50%{box-shadow:0 0 22px rgba(127,182,255,.5)}}
+.count{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:100%;max-width:560px}
+.count div{padding:16px 6px}
+.count b{display:block;font-family:'Playfair Display',serif;font-size:clamp(1.6rem,6vw,2.4rem);color:var(--cream)}
+.count span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.heart{display:inline-block;animation:beat 1.4s infinite}
+@keyframes beat{30%{transform:scale(1.25)}}
+/* Gallery */
+.filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:26px}
+.filters button{background:var(--glass);color:var(--cream);padding:8px 20px;border-radius:999px;border:1px solid rgba(127,182,255,.3)}
+.filters button.on{background:var(--gold);color:#06173d}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.ph{aspect-ratio:1;border-radius:16px;overflow:hidden;position:relative;cursor:pointer;transition:.3s}
+.ph:hover{transform:scale(1.03) rotate(-.6deg)}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph em{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 8px;font-size:.8rem;font-style:normal;background:linear-gradient(transparent,rgba(7,18,48,.88))}
+#lb{position:fixed;inset:0;z-index:90;background:rgba(4,10,28,.93);display:none;align-items:center;justify-content:center;flex-direction:column;padding:20px}
+#lb.open{display:flex}
+#lb img{max-width:min(92vw,720px);max-height:62vh;border-radius:14px;border:2px solid var(--gold)}
+#lb p{max-width:560px;margin-top:16px;line-height:1.6}
+#lb small{color:var(--gold);margin-top:6px}
+.x{position:absolute;top:calc(14px + env(safe-area-inset-top,0));right:18px;font-size:2rem;background:none;color:var(--cream)}
+/* Gacha */
+#gacha .card{padding:26px;max-width:560px;margin:24px auto 0;min-height:150px}
+#gacha video,#gacha img{width:100%;border-radius:14px;margin-bottom:14px;max-height:320px;object-fit:cover}
+.pop{animation:pop .5s}
+@keyframes pop{from{opacity:0;transform:scale(.85) rotate(-3deg)}}
+/* Letter */
+#env{width:min(300px,86vw);height:200px;margin:0 auto;position:relative;cursor:pointer}
+#env .back{position:absolute;inset:0;background:var(--wine);border-radius:10px;border:1px solid var(--gold)}
+#env .flap{position:absolute;top:0;left:0;right:0;height:100px;background:#2456b8;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .7s;z-index:3}
+#env.open .flap{transform:rotateX(180deg);z-index:0}
+#env .seal{position:absolute;top:78px;left:50%;transform:translateX(-50%);z-index:4;font-size:1.8rem;transition:.3s}
+#env.open .seal{opacity:0}
+#letter{max-height:0;overflow:hidden;transition:max-height 1s;max-width:620px;margin:0 auto}
+#letter.show{max-height:1400px;margin-top:26px}
+#letter .card{padding:28px;text-align:left;line-height:1.9;font-family:'Playfair Display',serif;font-style:italic;font-weight:500;min-height:200px;white-space:pre-wrap}
+/* Music */
+#mp{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0));z-index:80;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+#mpPanel{display:none;width:min(290px,86vw);padding:14px;background:rgba(9,22,56,.94)}
+#mpPanel.open{display:block}
+#mpPanel .t{font-size:.85rem;margin-bottom:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#mpPanel input[type=range]{width:100%;accent-color:var(--gold)}
+.ctl{display:flex;justify-content:space-between;margin-top:6px}
+.ctl button{background:none;color:var(--cream);font-size:1.2rem;padding:6px 10px}
+#mpFab{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#c9e2ff);font-size:1.4rem}
+#mpFab.spin{animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+footer{padding:40px 20px 90px;text-align:center;opacity:.6;font-size:.85rem;position:relative;z-index:1}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}

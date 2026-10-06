@@ -1,0 +1,10 @@
+/* ===== TEMA WARNA — ubah warna di sini saja ===== */
+:root{
+  --bg:#071230;
+  --bg2:#10285e;
+  --pink:#bcdcff;
+  --wine:#123a8a;
+  --gold:#7fb6ff;
+  --cream:#eef6ff;
+  --glass:rgba(220,235,255,.08);
+}
